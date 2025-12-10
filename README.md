@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+TalkTrek
 
-## Getting Started
+TalkTrek is an AI-powered English learning platform built with Next.js. It helps users improve their English skills through interactive games, AI chat practice, and real-world exercises.
 
-First, run the development server:
+This project was bootstrapped using create-next-app
+.
 
-```bash
+Features
+
+AI Chat: Practice conversations with an AI-powered chatbot.
+
+Word Match Game: Interactive vocabulary game with scoring.
+
+Authentication: Sign in with Google or email/password.
+
+Dashboard: Personal user dashboard to track progress.
+
+Responsive Design: Works on desktop and mobile devices.
+
+Next.js 16 & App Router: Fully using Next.js modern features.
+
+Getting Started
+1. Install dependencies
+npm install
+# or
+yarn
+# or
+pnpm install
+
+2. Run the development server
 npm run dev
 # or
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Open http://localhost:3000
+ in your browser.
+The page auto-updates as you edit files.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Environment Variables
 
-## Learn More
+Create a .env file in the root of your project with the following:
 
-To learn more about Next.js, take a look at the following resources:
+NEXTAUTH_SECRET=your-nextauth-secret
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+DATABASE_URL=your-database-connection-url
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Make sure to never commit secrets to GitHub. Use .gitignore for sensitive files like config/my-service-account.json.
 
-## Deploy on Vercel
+Project Structure
+app/              # Next.js pages and routes
+app/api/          # API routes (auth, AI chat, games)
+app/providers.tsx # NextAuth providers setup
+config/           # Local configuration (ignored in Git)
+lib/              # Database connections, helpers
+global.d.ts       # TypeScript global types
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Authentication
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+NextAuth.js is used for authentication.
+
+Supports:
+
+Google OAuth
+
+Email/password credentials
+
+Session management with JWT.
+
+Learn More
+
+Next.js Documentation
+ – learn about Next.js features and API.
+
+NextAuth.js Documentation
+ – authentication setup.
+
+React Documentation
+ – learn React fundamentals.
