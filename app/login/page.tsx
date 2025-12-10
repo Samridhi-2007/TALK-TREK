@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-
+import { FaHome } from "react-icons/fa";
 export default function Login() {
   const router = useRouter();
 
@@ -19,11 +19,9 @@ export default function Login() {
       const data = await res.json();
 
       if (res.ok) {
-        // ✅ Store user info in localStorage
         localStorage.setItem("user", JSON.stringify(data.user));
-
         alert("Login Successful 🎉");
-        router.push("/dashboard"); // Redirect to dashboard
+        router.push("/dashboard");
       } else {
         alert(data.error || "Login Failed ❌");
       }
@@ -34,7 +32,15 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white">
+    <div className="relative min-h-screen flex items-center justify-center bg-white">
+      {/* Home button */}
+      <button
+        onClick={() => router.push("/")}
+        className="absolute top-5 left-5 flex items-center gap-2 bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105"
+      >
+        <FaHome /> Home
+      </button>
+
       <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 shadow-xl rounded-2xl overflow-hidden">
         <div className="bg-orange-400 p-10 flex flex-col justify-center">
           <h1 className="text-4xl font-bold text-black">TalkTrek</h1>

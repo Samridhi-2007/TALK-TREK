@@ -1,5 +1,6 @@
 import "./globals.css";
 import { connectDB } from "@/lib/mongodb";
+import { Providers } from "./providers"; // Client wrapper import
 
 export const metadata = {
   title: "TalkTrek",
@@ -11,10 +12,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  connectDB(); // Calling database
+  connectDB(); // Database connect
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
